@@ -1,0 +1,20 @@
+L=800; 
+t=rand(L,1); s=sin(2*pi*t)+normrnd(0,0.05,L,1);
+x=t; y=s;
+opts.N=L;
+opts.Nt=50;
+opts.L=1;
+opts.Mp=1;
+opts.Mpt=1;
+opts.Ms=0;
+opts.Mst=0;
+opts.Ns=10;
+rf=rf_train(x,y,opts);
+yp=rf_eval(x,rf);
+scatter(x,y); hold on
+scatter(x,yp); 
+xc=0.6; l=0.15;
+[y0,B]=rf_model(xc,rf);
+xl=[xc-l;xc+l];
+yl=xl*B+y0;
+plot(xl,yl,'color','k','linewidth',2);
