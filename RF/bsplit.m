@@ -42,7 +42,7 @@ lnd.sum_x=zeros(1,Mp); lnd.ssum_y=zeros(1,L);
 
 critParent=parent.sse;
 if Mst > 0
-    mind=[randsample(Mp,Mpt),Mp+randsample(Ms,Mst)];
+    mind=[randsample(Mp,Mpt);Mp+randsample(Ms,Mst)];
 else
     mind=randsample(Mp,Mpt);
 end
